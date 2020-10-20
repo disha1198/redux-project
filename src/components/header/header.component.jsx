@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { auth } from '../../firebase/firebase.utils';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import './header.styles.scss';
+
 
 const Header = ({ currentUser }) => (
   <div className='header'>
@@ -32,4 +34,8 @@ const Header = ({ currentUser }) => (
   </div>
 );
 
-export default Header;
+const mapStateToProps = state =>({
+  currentUser: state.user.currentUser
+});
+//  we are going to pass connect to function, the second one being optional and that will give us back another higher  component that we pass it our header. 
+export default connect(mapStateToProps)(Header);
