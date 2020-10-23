@@ -37,5 +37,6 @@ const Header = ({ currentUser }) => (
 const mapStateToProps = state =>({
   currentUser: state.user.currentUser
 });
+
 //  we are going to pass connect to function, the second one being optional and that will give us back another higher  component that we pass it our header. 
 export default connect(mapStateToProps)(Header);
